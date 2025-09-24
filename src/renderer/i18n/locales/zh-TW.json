@@ -29,7 +29,9 @@
       "uploadFile": "上傳檔案",
       "linkFolder": "開啟資料夾",
       "newConversation": "新對話",
-      "multiAgentModeEnabled": "已進入多智能體模式"
+      "multiAgentModeEnabled": "已進入多智能體模式",
+      "selectModel": "選擇模型",
+      "noAvailableModels": "暫無可用模型"
     },
     "history": {
       "today": "今天",
@@ -97,7 +99,22 @@
     "tools": "工具配置",
     "imageGenerationModel": "圖像模型",
     "imageGenerationGuide": "圖像模型配置指南",
-    "noAvailable": "暫無可用圖像模型，請先配置。"
+    "noAvailable": "暫無可用圖像模型，請先配置。",
+    "noConfiguredModels": "暫無已配置的模型",
+    "needHelpConfigGuide": "需要幫助？查看詳細的",
+    "configGuide": "配置指南",
+    "configGuideSuffix": "",
+    "appDescription": "你的桌面AI助手，讓AI對話更簡單",
+    "helpDocumentation": "幫助文檔",
+    "updateLog": "更新日誌",
+    "feedback": "意見反饋",
+    "contactMe": "聯繫我",
+    "officialWebsite": "官網",
+    "starIfYouLikeIt": "如果喜歡請給個Star",
+    "view": "查看",
+    "feedback": "反饋",
+    "contact": "聯繫",
+    "visit": "訪問"
   },
   "messages": {
     "conversationInProgress": "目前正在進行對話...",

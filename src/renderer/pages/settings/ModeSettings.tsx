@@ -1,7 +1,7 @@
 import { ipcBridge } from '@/common';
 import type { IProvider } from '@/common/storage';
 import { Button, Collapse, Divider, Message, Popconfirm } from '@arco-design/web-react';
-import { DeleteFour, Minus, Plus, Write } from '@icon-park/react';
+import { DeleteFour, Info, Minus, Plus, Write } from '@icon-park/react';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import useSWR from 'swr';
@@ -90,6 +90,31 @@ const ModelSettings: React.FC = () => {
       {editModalContext}
       {addModelModalContext}
       {messageContext}
+      {/* Empty State */}
+      {(!data || data.length === 0) && (
+        <div className='flex flex-col items-center justify-center py-20px px-16px text-center'>
+          <div className='mb-16px'>
+            <Info theme='outline' size='48' fill='#86909c' />
+          </div>
+          <h3 className='text-18px font-medium text-gray-700 mb-8px'>{t('settings.noConfiguredModels')}</h3>
+          <p className='text-14px text-gray-500 mb-20px max-w-400px'>
+            {t('settings.needHelpConfigGuide')}
+            <a
+              href='https://github.com/iOfficeAI/AionUi/wiki/LLM-Configuration'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='text-blue-500 hover:text-blue-600 underline cursor-pointer'
+              onClick={(e) => {
+                e.preventDefault();
+                ipcBridge.shell.openExternal.invoke('https://github.com/iOfficeAI/AionUi/wiki/LLM-Configuration');
+              }}
+            >
+              {t('settings.configGuide')}
+            </a>
+            {t('settings.configGuideSuffix')}
+          </p>
+        </div>
+      )}
       {(data || []).map((platform, index) => {
         const key = platform.id;
         return (
@@ -98,8 +123,7 @@ const ModelSettings: React.FC = () => {
             onChange={() => {
               setCollapseKey({ ...collapseKey, [key]: !collapseKey[key] });
             }}
-            style={{ maxWidth: 1180 }}
-            className={'mb-20px'}
+            className='mb-20px max-w-1180px'
             key={key}
           >
             <Collapse.Item

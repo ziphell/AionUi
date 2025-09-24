@@ -29,7 +29,9 @@
       "uploadFile": "Upload Files",
       "linkFolder": "Open Folder",
       "newConversation": "New Chat",
-      "multiAgentModeEnabled": "Entering multi-agent mode"
+      "multiAgentModeEnabled": "Entering multi-agent mode",
+      "selectModel": "Select Model",
+      "noAvailableModels": "No available models"
     },
     "history": {
       "today": "Today",
@@ -97,7 +99,22 @@
     "tools": "Tools Settings",
     "imageGenerationModel": "Image Model",
     "imageGenerationGuide": "Image Model Setup Guide",
-    "noAvailable": "No available image models, please configure first."
+    "noAvailable": "No available image models, please configure first.",
+    "noConfiguredModels": "No configured models",
+    "needHelpConfigGuide": "Need help? Check out the detailed",
+    "configGuide": "configuration guide",
+    "configGuideSuffix": "",
+    "appDescription": "Your desktop AI assistant, making AI conversations simpler",
+    "helpDocumentation": "Help Documentation",
+    "updateLog": "Update Log",
+    "feedback": "Feedback",
+    "contactMe": "Contact Me",
+    "officialWebsite": "Official Website",
+    "starIfYouLikeIt": "Star if you like it",
+    "view": "View",
+    "feedback": "Feedback",
+    "contact": "Contact",
+    "visit": "Visit"
   },
   "messages": {
     "conversationInProgress": "A conversation is currently in progress...",

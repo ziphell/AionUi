@@ -29,7 +29,9 @@
       "uploadFile": "ファイルを追加",
       "linkFolder": "フォルダを追加",
       "newConversation": "新しいチャット",
-      "multiAgentModeEnabled": "マルチエージェントモードに入ります"
+      "multiAgentModeEnabled": "マルチエージェントモードに入ります",
+      "selectModel": "モデルを選択",
+      "noAvailableModels": "利用可能なモデルがありません"
     },
     "history": {
       "today": "今日",
@@ -88,8 +90,8 @@
     "addModelPlaceholder": "モデルIDを選択または入力してください",
     "customOpenAI": "カスタム（OpenAI互換）",
     "proxyHttpOnly": "HTTP/HTTPSのみをサポート",
-    "baseUrlAutoFix": "base_url 自動修復為：{{base_url}}",
-    "updateConfirm": "確認変更",
+    "baseUrlAutoFix": "base_url が自動的に修正されました：{{base_url}}",
+    "updateConfirm": "変更を確認",
     "restartConfirm": "変更後にアプリを再起動します。続行しますか？",
     "theme": "テーマ",
     "lightMode": "ライト",
@@ -97,7 +99,22 @@
     "tools": "ツール設定",
     "imageGenerationModel": "画像モデル",
     "imageGenerationGuide": "画像モデル設定ガイド",
-    "noAvailable": "利用可能な画像モデルがありません。先に設定してください。"
+    "noAvailable": "利用可能な画像モデルがありません。先に設定してください。",
+    "noConfiguredModels": "設定されたモデルがありません",
+    "needHelpConfigGuide": "ヘルプが必要ですか？詳細な",
+    "configGuide": "設定ガイド",
+    "configGuideSuffix": "をご覧ください",
+    "appDescription": "あなたのデスクトップAIアシスタント、AI会話をより簡単に",
+    "helpDocumentation": "ヘルプドキュメント",
+    "updateLog": "更新ログ",
+    "feedback": "フィードバック",
+    "contactMe": "お問い合わせ",
+    "officialWebsite": "公式サイト",
+    "starIfYouLikeIt": "気に入ったらStarしてください",
+    "view": "表示",
+    "feedback": "フィードバック",
+    "contact": "お問い合わせ",
+    "visit": "訪問"
   },
   "messages": {
     "conversationInProgress": "現在、会話中です...",

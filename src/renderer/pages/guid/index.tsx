@@ -11,15 +11,15 @@ import { ConfigStorage } from '@/common/storage';
 import { uuid } from '@/common/utils';
 import ClaudeLogo from '@/renderer/assets/logos/claude.svg';
 import GeminiLogo from '@/renderer/assets/logos/gemini.svg';
-import QwenLogo from '@/renderer/assets/logos/qwen.svg';
 import IflowLogo from '@/renderer/assets/logos/iflow.svg';
-import { geminiModeList } from '@/renderer/hooks/useModeModeList';
-import { hasSpecificModelCapability } from '@/renderer/utils/modelCapabilities';
-import { allSupportedExts, type FileMetadata, getCleanFileNames } from '@/renderer/services/FileService';
-import { formatFilesForMessage } from '@/renderer/hooks/useSendBoxFiles';
-import { usePasteService } from '@/renderer/hooks/usePasteService';
-import { useDragUpload } from '@/renderer/hooks/useDragUpload';
+import QwenLogo from '@/renderer/assets/logos/qwen.svg';
 import { useCompositionInput } from '@/renderer/hooks/useCompositionInput';
+import { useDragUpload } from '@/renderer/hooks/useDragUpload';
+import { geminiModeList } from '@/renderer/hooks/useModeModeList';
+import { usePasteService } from '@/renderer/hooks/usePasteService';
+import { formatFilesForMessage } from '@/renderer/hooks/useSendBoxFiles';
+import { allSupportedExts, type FileMetadata, getCleanFileNames } from '@/renderer/services/FileService';
+import { hasSpecificModelCapability } from '@/renderer/utils/modelCapabilities';
 import { Button, ConfigProvider, Dropdown, Input, Menu, Radio, Space, Tooltip } from '@arco-design/web-react';
 import { ArrowUp, Plus } from '@icon-park/react';
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
@@ -350,28 +350,51 @@ const Guid: React.FC = () => {
                   trigger='hover'
                   droplist={
                     <Menu selectedKeys={currentModel ? [currentModel.id + currentModel.useModel] : []}>
-                      {(modelList || []).map((provider) => {
-                        const availableModels = getAvailableModels(provider);
-                        return (
-                          <Menu.ItemGroup title={provider.name} key={provider.id}>
-                            {availableModels.map((modelName) => (
-                              <Menu.Item
-                                key={provider.id + modelName}
-                                className={currentModel?.id + currentModel?.useModel === provider.id + modelName ? '!bg-#f2f3f5' : ''}
-                                onClick={() => {
-                                  setCurrentModel({ ...provider, useModel: modelName });
-                                }}
-                              >
-                                {modelName}
-                              </Menu.Item>
-                            ))}
-                          </Menu.ItemGroup>
-                        );
-                      })}
+                      {/* 检查是否有可用模型 */}
+                      {modelList && modelList.length > 0 ? (
+                        <>
+                          {(modelList || []).map((provider) => {
+                            const availableModels = getAvailableModels(provider);
+                            return (
+                              <Menu.ItemGroup title={provider.name} key={provider.id}>
+                                {availableModels.map((modelName) => (
+                                  <Menu.Item
+                                    key={provider.id + modelName}
+                                    className={currentModel?.id + currentModel?.useModel === provider.id + modelName ? '!bg-#f2f3f5' : ''}
+                                    onClick={() => {
+                                      setCurrentModel({ ...provider, useModel: modelName });
+                                    }}
+                                  >
+                                    {modelName}
+                                  </Menu.Item>
+                                ))}
+                              </Menu.ItemGroup>
+                            );
+                          })}
+                          {/* Divider */}
+                          <Menu.Item key='divider' disabled className='p-0 h-1px bg-gray-300 my-4px'></Menu.Item>
+                        </>
+                      ) : (
+                        /* No Available Models Message */
+                        <Menu.Item key='no-models' disabled className='px-12px py-12px text-gray-500 text-14px text-center flex justify-center items-center'>
+                          {t('conversation.welcome.noAvailableModels')}
+                        </Menu.Item>
+                      )}
+                      {/* Add Model Option */}
+                      <Menu.Item
+                        key='add-model'
+                        onClick={() => {
+                          navigate('/settings/model');
+                        }}
+                        className='text-12px text-gray-500'
+                      >
+                        <Plus theme='outline' size='12' className='mr-8px' />
+                        {t('settings.addModel')}
+                      </Menu.Item>
                     </Menu>
                   }
                 >
-                  <Button shape='round'>{currentModel ? currentModel.useModel : 'Select Model'}</Button>
+                  <Button shape='round'>{currentModel ? currentModel.useModel : t('conversation.welcome.selectModel')}</Button>
                 </Dropdown>
               )}
             </div>
@@ -381,7 +404,7 @@ const Guid: React.FC = () => {
 
         {/* ACP Agents 选择区域 */}
         {availableAgents && availableAgents.length > 0 && (
-          <Space direction='horizontal' className={styles.roundedSpace} style={{ marginTop: 16, width: '100%', justifyContent: 'center' }}>
+          <Space direction='horizontal' className={`${styles.roundedSpace} mt-16px w-full justify-center`}>
             <Radio.Group
               type='button'
               className={styles.roundedRadioGroup}
@@ -392,7 +415,7 @@ const Guid: React.FC = () => {
               options={availableAgents.map((agent) => ({
                 label: (
                   <div className='flex items-center gap-2'>
-                    <img src={agent.backend === 'claude' ? ClaudeLogo : agent.backend === 'gemini' ? GeminiLogo : agent.backend === 'qwen' ? QwenLogo : agent.backend === 'iflow' ? IflowLogo : ''} alt={`${agent.backend} logo`} width={16} height={16} style={{ objectFit: 'contain' }} />
+                    <img src={agent.backend === 'claude' ? ClaudeLogo : agent.backend === 'gemini' ? GeminiLogo : agent.backend === 'qwen' ? QwenLogo : agent.backend === 'iflow' ? IflowLogo : ''} alt={`${agent.backend} logo`} width={16} height={16} className='object-contain' />
                     <span className='font-medium'>{agent.name}</span>
                   </div>
                 ),
