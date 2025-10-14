@@ -62,14 +62,6 @@ _複数の会話を開いてもタスクは混乱せず、それぞれの記憶�
   <img src="./resources/multichat-side-by-side.gif" alt="会話管理デモ" width="800">
 </p>
 
-### 🔌 **MCP ツール統合**
-
-_モデルコンテキストプロトコルサーバーとツールをシームレスに統合・管理_
-
-<p align="center">
-  <img src="./resources/sort_out_folder.gif" alt="MCP ツール管理デモ" width="800">
-</p>
-
 ## 📋 目次
 
 - [🤔 どうして AionUi を選ぶべきなのか？](#-どうして-AionUi-を選ぶべきなのか)

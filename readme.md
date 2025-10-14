@@ -68,14 +68,6 @@ _Multiple conversations, no task confusion, independent memory, double efficienc
   <img src="./resources/multichat-side-by-side.gif" alt="Conversation Management Demo" width="800">
 </p>
 
-### 🔌 **MCP Tool Integration**
-
-_Seamlessly integrate and manage Model Context Protocol servers and tools_
-
-<p align="center">
-  <img src="./resources/sort_out_folder.gif" alt="MCP Tool Management Demo" width="800">
-</p>
-
 ---
 
 **This is just the tip of AionUi's capabilities!** 🚀

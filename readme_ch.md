@@ -62,14 +62,6 @@ _开多个对话、任务不混乱、记忆独立、效率翻倍_
   <img src="./resources/multichat-side-by-side.gif" alt="对话管理演示" width="800">
 </p>
 
-### 🔌 **MCP 工具集成**
-
-_无缝集成和管理模型上下文协议服务器和工具_
-
-<p align="center">
-  <img src="./resources/sort_out_folder.gif" alt="MCP 工具管理演示" width="800">
-</p>
-
 ## 📋 目录
 
 - [🤔 为什么需要 AionUi？](#-为什么需要-aionui)
